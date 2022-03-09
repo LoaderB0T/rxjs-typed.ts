@@ -26,13 +26,10 @@ Read all about typed.ts [here](https://github.com/LoaderB0T/typed.ts)
 ## Getting Started 🚀
 
 ```typescript
-import { Typed } from 'rxjs-typed.ts';
+import { Typed } from './rxjs-typed';
 
-const typed = new Typed({
-  callback: text => {
-    console.log(text);
-  }
-});
+const typed = new Typed();
+typed.text$.subscribe(text => console.log(text));
 
 const line1 = 'Hello, World!';
 const line2 = 'slow';
