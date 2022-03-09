@@ -14,6 +14,8 @@ This package extends the typed.ts package with an observable output instead of a
 
 ✅ Uses RxJS Observable instead of callback
 
+✅ Can be used in Angular templates directly with the [`async` pipe](https://angular.io/api/common/AsyncPipe)
+
 Read all about typed.ts [here](https://github.com/LoaderB0T/typed.ts)
 
 ## Built With 🔧
