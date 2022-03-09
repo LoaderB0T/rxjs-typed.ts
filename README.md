@@ -6,7 +6,13 @@ Realistic typing simulations in TypeScript & RxJS!
 
 ## Motivation 💥
 
-This package extends the typed.ts package with an observable output instead of a callback. Read all about typed.ts [here](https://github.com/LoaderB0T/typed.ts)
+This package extends the typed.ts package with an observable output instead of a callback. Read all about typed.ts [here](https://github.com/LoaderB0T/typed.ts).
+
+## Example 🧮
+
+<p align="center">
+  <img src="readme/example.gif" height="350">
+</p>
 
 ## Features 🔥
 
@@ -16,7 +22,7 @@ This package extends the typed.ts package with an observable output instead of a
 
 ✅ Can be used in Angular templates directly with the [`async` pipe](https://angular.io/api/common/AsyncPipe)
 
-Read all about typed.ts [here](https://github.com/LoaderB0T/typed.ts)
+Read all about typed.ts [here](https://github.com/LoaderB0T/typed.ts).
 
 ## Built With 🔧
 
