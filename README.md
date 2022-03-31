@@ -1,4 +1,6 @@
 [![npm](https://img.shields.io/npm/v/rxjs-typed.ts?color=%2300d26a&style=for-the-badge)](https://www.npmjs.com/package/rxjs-typed.ts)
+[![LGTM Grade](https://img.shields.io/lgtm/grade/javascript/github/LoaderB0T/rxjs-typed.ts?label=Code%20Quality&style=for-the-badge)](https://lgtm.com/projects/g/LoaderB0T/rxjs-typed.ts/?mode=list)
+[![LGTM Alerts](https://img.shields.io/lgtm/alerts/github/LoaderB0T/rxjs-typed.ts?style=for-the-badge)](https://lgtm.com/projects/g/LoaderB0T/rxjs-typed.ts/?mode=list)
 
 # rxjs-typed.ts
 
