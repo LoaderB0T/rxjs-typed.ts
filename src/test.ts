@@ -1,6 +1,6 @@
 import { Typed } from './rxjs-typed';
 
-const typed = new Typed();
+const typed = new Typed({ eraseDelay: { min: 20, max: 40 } });
 typed.text$.subscribe(text => console.log(text));
 
 const line1 = 'Hello, World!';
@@ -9,16 +9,19 @@ const line3 = 'this is typed really fast, but errors are slow';
 const line4 = 'this line is fast forwarded. No errors will be made';
 
 const type = async () => {
-  await typed.start(line1);
-  await typed.backspace(line1.length, { minEraseDelay: 20, maxEraseDelay: 40 });
-  await typed.start(line2, { minDelay: 200, maxDelay: 400 });
-  await typed.backspace(line2.length, { minEraseDelay: 20, maxEraseDelay: 40 });
-  await typed.start(line3, { minDelay: 40, maxDelay: 80, minEraseDelay: 200, maxEraseDelay: 400 });
-  await typed.backspace(line3.length, { minEraseDelay: 20, maxEraseDelay: 40 });
+  typed
+    .type(line1)
+    .backspace(line1.length)
+    .type(line2, { perLetterDelay: { min: 200, max: 400 } })
+    .backspace(line2.length)
+    .type(line3, { eraseDelay: { min: 40, max: 80 }, perLetterDelay: { min: 200, max: 400 } })
+    .backspace(line3.length);
+
   typed.fastForward();
-  await typed.start(line4);
-  typed.fastForward(false);
-  typed.reset();
+  await typed.run();
+  await typed.reset(true);
+  typed.type(line4);
+  await typed.run();
 };
 
 type();
