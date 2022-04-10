@@ -1,6 +1,6 @@
 {
   "name": "rxjs-typed.ts",
-  "version": "2.0.0-pre1",
+  "version": "2.0.0",
   "description": "Realistic typing simulations in TypeScript & RxJS",
   "main": "lib/index.js",
   "files": [
