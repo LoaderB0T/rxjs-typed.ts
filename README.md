@@ -1,4 +1,5 @@
 [![npm](https://img.shields.io/npm/v/rxjs-typed.ts?color=%2300d26a&style=for-the-badge)](https://www.npmjs.com/package/rxjs-typed.ts)
+[![Sonar Quality Gate](https://img.shields.io/sonar/quality_gate/LoaderB0T_rxjs-typed.ts?server=https%3A%2F%2Fsonarcloud.io&style=for-the-badge)](https://sonarcloud.io/summary/new_code?id=LoaderB0T_rxjs-typed.ts)
 
 # rxjs-typed.ts
 
@@ -80,3 +81,4 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 Janik Schumacher - [@LoaderB0T](https://twitter.com/LoaderB0T) - [linkedin](https://www.linkedin.com/in/janikschumacher/)
 
 Project Link: [https://github.com/LoaderB0T/rxjs-typed.ts](https://github.com/LoaderB0T/rxjs-typed.ts)
+
