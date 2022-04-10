@@ -14,7 +14,7 @@
   "license": "MIT",
   "private": false,
   "dependencies": {
-    "typed.ts": "2.0.0-pre2"
+    "typed.ts": "^2.0.0"
   },
   "peerDependencies": {
     "rxjs": ">= 5.0.0"
