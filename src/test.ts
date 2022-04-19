@@ -1,4 +1,4 @@
-import { Typed } from './rxjs-typed';
+import { Typed } from './rxjs-typed.js';
 
 const typed = new Typed({ eraseDelay: { min: 20, max: 40 } });
 typed.text$.subscribe(text => console.log(text));
