@@ -1,6 +1,6 @@
 import { BehaviorSubject } from 'rxjs';
 import { ConstructorTypingOptions, Typed as TypedTs } from 'typed.ts';
-import { RequiredTypingOptions } from './types/options';
+import { RequiredTypingOptions } from './types/options.js';
 
 export class Typed extends TypedTs {
   private readonly _text = new BehaviorSubject('');

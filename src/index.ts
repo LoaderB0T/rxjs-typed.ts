@@ -1,2 +1,2 @@
-export * from './rxjs-typed';
-export * from './types/options';
+export * from './rxjs-typed.js';
+export * from './types/options.js';

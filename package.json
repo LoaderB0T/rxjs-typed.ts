@@ -1,8 +1,15 @@
 {
   "name": "rxjs-typed.ts",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "Realistic typing simulations in TypeScript & RxJS",
-  "main": "lib/index.js",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./lib/esm/index.js",
+      "require": "./lib/cjs/index.js"
+    }
+  },
+  "main": "./lib/cjs/index.js",
   "author": {
     "name": "Janik Schumacher (LoaderB0T)",
     "url": "https://awdware.de"
@@ -21,12 +28,17 @@
   "scripts": {
     "lint": "yarn eslint ./src/**",
     "test": "jest",
-    "build": "tsc -p ."
+    "prebuild": "yarn rimraf lib",
+    "build": "yarn build-esm && yarn build-cjs",
+    "build-base": "tsc -p .",
+    "build-esm": "yarn build-base --outDir lib/esm",
+    "build-cjs": "yarn build-base --outDir lib/cjs --module commonjs && yarn fix-cjs",
+    "fix-cjs": "node --loader ts-node/esm ./fix-cjs.ts"
   },
   "license": "MIT",
   "private": false,
   "dependencies": {
-    "typed.ts": "^2.0.0"
+    "typed.ts": "^2.1.0"
   },
   "peerDependencies": {
     "rxjs": ">= 5.0.0"
@@ -37,9 +49,9 @@
     "@awdware/prettier-config": "^0.0.2",
     "@types/jest": "^27.4.0",
     "@types/node": "^16.0.0",
-    "@typescript-eslint/eslint-plugin": "^5.9.1",
-    "@typescript-eslint/parser": "^5.9.1",
-    "eslint": "^8.6.0",
+    "@typescript-eslint/eslint-plugin": "^5.20.0",
+    "@typescript-eslint/parser": "^5.20.0",
+    "eslint": "^8.13.0",
     "jest": "^27.4.7",
     "jest-junit": "^13.0.0",
     "legally": "^3.5.10",

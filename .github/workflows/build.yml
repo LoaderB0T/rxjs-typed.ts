@@ -15,8 +15,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [12.x, 14.x, 16.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+        node-version: [14.x, 16.x, 18.x]
 
     steps:
       - uses: actions/checkout@v2
@@ -28,6 +27,8 @@ jobs:
         run: yarn
       - name: Build
         run: yarn build
+      - name: Lint
+        run: yarn lint
       - name: Test
         run: yarn test
       - name: Publish Unit Test Results
