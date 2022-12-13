@@ -4,6 +4,9 @@ import { RequiredTypingOptions } from './types/options.js';
 
 export class Typed extends TypedTs {
   private readonly _text = new BehaviorSubject('');
+  /**
+   * The Observable that emits the current text.
+   */
   public readonly text$ = this._text.asObservable();
 
   constructor(options: RequiredTypingOptions = {}) {
