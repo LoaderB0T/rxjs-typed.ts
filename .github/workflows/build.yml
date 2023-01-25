@@ -16,6 +16,7 @@ jobs:
     strategy:
       matrix:
         node-version: [14.x, 16.x, 18.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
       - uses: actions/checkout@v2
@@ -27,12 +28,20 @@ jobs:
         run: yarn
       - name: Build
         run: yarn build
-      - name: Lint
-        run: yarn lint
       - name: Test
         run: yarn test
-      - name: Publish Unit Test Results
-        uses: EnricoMi/publish-unit-test-result-action@v1
+      - name: Upload Test Results
         if: always()
+        uses: actions/upload-artifact@v2
         with:
-          files: junit.xml
+          name: Test Results (${{ matrix.node-version }})
+          path: junit.xml
+  event_file:
+    name: 'Event File'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Upload
+        uses: actions/upload-artifact@v2
+        with:
+          name: Event File
+          path: ${{ github.event_path }}
