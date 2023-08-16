@@ -1,3 +1,47 @@
+# Deprecated
+
+### rxjs-typed.ts is now deprecated in favor of [typed.ts](https://github.com/LoaderB0T/typed.ts)'s new support of custom data structures
+
+### To use typed.ts with RxJS, simply use the factory function `Typed.factory` and pass in an object with the following properties
+
+```typescript
+import { Typed } from 'typed.ts';
+import { BehaviorSubject } from 'rxjs';
+
+const typedFac = Typed.factory({
+  setUp: () => new BehaviorSubject(''),
+  update: (textSubj, text) => textSubj.next(text)
+});
+
+const typed = typedFac({ // Same arguments as new Typed()
+  perLetterDelay: { min: 20, max: 200 }
+});
+
+// only change here is the missing "$" at the end of text
+typed.text.subscribe(console.log);
+```
+
+### This is a fairly simple change, but it allows typed.ts to be used with any custom data structure, not just RxJS observables
+
+### If you are using Angular, you can even use the signals API that was introduced in v16 to make it even easier to use typed.ts in your templates
+
+```typescript
+import { Typed } from 'typed.ts';
+import { signal, effect } from '@angular/core';
+
+const typedFac = Typed.factory({
+  setUp: () => signal(''),
+  update: (textSig, text) => textSig.set(text)
+});
+
+const typed = typedFac({ // Same arguments as new Typed() except no callback
+  perLetterDelay: { min: 20, max: 200 }
+});
+
+effect(() => console.log(typed.text()));
+// use typed.text() directly in your template
+```
+
 [![npm](https://img.shields.io/npm/v/rxjs-typed.ts?color=%2300d26a&style=for-the-badge)](https://www.npmjs.com/package/rxjs-typed.ts)
 [![CI](https://img.shields.io/github/actions/workflow/status/LoaderB0T/rxjs-typed.ts/build.yml?branch=main&style=for-the-badge)](https://github.com/LoaderB0T/rxjs-typed.ts/actions/workflows/build.yml)
 [![Sonar Quality Gate](https://img.shields.io/sonar/quality_gate/LoaderB0T_rxjs-typed.ts?server=https%3A%2F%2Fsonarcloud.io&style=for-the-badge)](https://sonarcloud.io/summary/new_code?id=LoaderB0T_rxjs-typed.ts)
